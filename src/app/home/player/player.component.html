@@ -1,0 +1,107 @@
+<div>
+    <form [formGroup]="player">
+        <div class="form-group">
+          <label>Player Name:</label>
+          <input type="text" class="form-control" #name formControlName="name"/>
+    
+        </div>
+        
+          <button (click)="onSearch(name.value)" class="btn btn-success">Search</button>
+          
+  
+    </form>
+ 
+    
+    <ngx-datatable
+    #mydatatable
+    class="material"
+    [headerHeight]="50"
+    [limit]="5"
+    [columnMode]="'force'"
+    [footerHeight]="50"
+    [rowHeight]="'auto'"
+    [rows]="rows">
+    <ngx-datatable-column name="pid">
+      <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex"  let-row="row">
+        <span>
+               
+          {{row.pid}}
+        </span>
+        
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="fullName">
+      <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row">
+         <span>
+         
+          {{row.fullName}}
+        </span>
+      
+          
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="name">
+      <ng-template ngx-datatable-cell-template let-row="row">
+        {{row.name}}
+      </ng-template>
+    </ngx-datatable-column>
+    
+      <ngx-datatable-column name="View">
+          <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" >
+             <span>
+             
+                <!-- <button mat-button class="btn btn-success" (click)="openModel(row.pid)">View</button> -->
+                 <!-- <button mat-button (click)="openDialog()">View</button>  -->
+                 <button mat-button class="btn btn-success" (click)="openDialog(row.pid)">View</button>
+
+            </span>
+          </ng-template>
+
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>
+
+
+
+
+<!-- <div>
+
+    <form [formGroup]="player">
+      <div class="form-group">
+        <label>Player Name:</label>
+        <input type="text" class="form-control" #name formControlName="name"/>
+  
+      </div>
+      
+        <button (click)="onSearch(name.value)" class="btn btn-success">Search</button>
+        
+
+  </form>
+</div>
+
+<br><br>
+<div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Player ID</th>
+            <th scope="col">Player Name</th>
+            <th scope="col">View Details</th>
+
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let p of players'>
+            
+            <td>{{p.pid}}</td>
+            <td>{{p.name}}</td>
+            <td><button class="btn btn-success" (click)="getPlayerDetails(p.pid)">View</button></td>
+            
+          </tr>
+          
+          
+        </tbody>
+      </table>
+</div> -->

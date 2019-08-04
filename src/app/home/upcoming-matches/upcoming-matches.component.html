@@ -1,0 +1,57 @@
+<div>
+  <input type="Date" #d (keyup.enter)="getUpcomingMatchesByDate(d.value)">
+  </div>
+
+
+<ngx-datatable
+#mydatatable
+class="material"
+[headerHeight]="50"
+[limit]="7"
+[columnMode]="'force'"
+[footerHeight]="50"
+[rowHeight]="'auto'"
+[rows]="rows">
+
+<ngx-datatable-column name="unique_id">
+  <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex"  let-row="row">
+    <span>
+           
+      {{row.unique_id}}
+    </span>
+    
+  </ng-template>
+</ngx-datatable-column>
+<ngx-datatable-column name="name">
+  <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row">
+     <span>
+     
+      {{row.name}}
+    </span>
+  
+      
+  </ng-template>
+</ngx-datatable-column>
+
+<ngx-datatable-column name="date">
+        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row">
+           <span>
+           
+            {{row.date| date:'dd/MM/yy'}}
+          </span>
+        
+            
+        </ng-template>
+      </ngx-datatable-column>
+  <!-- <ngx-datatable-column name="View">
+      <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" >
+         <span>
+         
+            <button class="btn btn-success" (click)=" getUpcomingMatches(row.unique_id)">View</button>
+        </span>
+      </ng-template>
+
+</ngx-datatable-column> -->
+</ngx-datatable>
+
+

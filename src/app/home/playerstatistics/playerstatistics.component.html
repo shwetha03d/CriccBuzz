@@ -1,0 +1,33 @@
+<table  *ngIf="playerInfo!=null" border="1">
+
+        <tr>
+            <td colspan="2"><img [src]="playerInfo.imageURL"></td>
+        </tr>
+    
+   
+        <tr>
+            <td>Name</td>
+            <td>{{playerInfo.fullName}}</td>
+        </tr>
+        <tr>
+                <td>Age</td>
+                <td>{{playerInfo.currentAge}}</td>
+            </tr>
+   
+            <tr>
+                    <td>Batting Style</td>
+                    <td>{{playerInfo.battingStyle}}</td>
+                </tr>
+   
+                <tr>
+                        <td>Bowling Style</td>
+                        <td>{{playerInfo.bowlingStyle}}</td>
+                    </tr>
+   
+                    <tr>
+                            <td>Role</td>
+                            <td>{{playerInfo.playingRole}}</td>
+                        </tr>
+                   
+   
+</table>
